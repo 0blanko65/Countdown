@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown</title>
+    <style>
+        body {
+            background-image: url("https://static.vecteezy.com/ti/gratis-vektor/p3/106939-free-grau-camouflage-kostenlos-vektor.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #countdown {
+            font-size: 48px;
+            text-align: center;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="countdown"></div>
+        <h2>bis wir wieder Softair spielen gehen</h2>
+    </div>
+
+    <script>
+        // Ziel-Datum fĂĽr den Countdown (Jahr, Monat (0-11), Tag, Stunden, Minuten, Sekunden)
+        var targetDate = new Date(2023, 9, 21, 10, 0, 0);
+
+        // Aktualisiert den Countdown jede Sekunde
+        setInterval(updateCountdown, 1000);
+
+        function updateCountdown() {
+            var currentDate = new Date();
+            var difference = targetDate - currentDate;
+
+            // Berechnet die verbleibenden Tage, Stunden, Minuten und Sekunden
+            var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            var minutes = Math.floor((difference / (1000 * 60)) % 60);
+            var seconds = Math.floor((difference / 1000) % 60);
+
+            // Aktualisiert den Countdown-Text
+            document.getElementById("countdown").innerHTML = days + " Tage " + hours + " Stunden " + minutes + " Minuten " + seconds + " Sekunden";
+        }
+    </script>
+</body>
+</html>
